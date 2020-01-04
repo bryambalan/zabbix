@@ -38,8 +38,13 @@ O host irá criar o grupo Sites e irá adicionar um Value MAP para a tradução 
 
 Para monitorar algum outro site do DownDetector, basta criar um novo item e na <b>chave</b> adicionar o seguinte valor:
 <pre>down.py[MEUSITE]</pre>
+
+<center><img src="https://github.com/made4-it/zabbix/blob/master/IMAGENS/Captura%20de%20Tela%202020-01-03%20a%CC%80s%2022.07.18.png"></center>
+
 Exemplo para monitoramento do Apple Store:
 <pre>down.py[apple-store]</pre>
+
+
 
 Lista de todos os sites disponiveis para monitoramento:
 <pre>albion-online
@@ -242,11 +247,19 @@ Então foi criado uma simples trigger para monitorar o last value dos items:
 <pre>	{DownDetector:down.py[caixa].last()}>10</pre>
 
 <b>2 – </b> Criar Dashboard no Grafana <br>
+<center><img src="https://github.com/made4-it/zabbix/blob/master/IMAGENS/Captura%20de%20Tela%202020-01-03%20a%CC%80s%2022.05.08.png"></center>
 
 Para adicionar a tela do grafana, basta importar o seguinte JSON para o seu grafana:
 <pre>https://raw.githubusercontent.com/made4-it/zabbix/master/Grafana/downdetector.json</pre>
 
 No grafana foi utilizado 2 plugins padrões, <b>Text</b> e <b>Singlestat</b>, aonde o Text é para gerar a imagem do site:
+<center><img src="https://github.com/made4-it/zabbix/blob/master/IMAGENS/Captura%20de%20Tela%202020-01-03%20a%CC%80s%2022.05.30.png"></center>
 
 
 E o SingleStat é para monitorar o valor dos itens do zabbix, aonde está configurado uma Thresholds para quando mudar para os Status codes especificos irá mudar a cor do texto apresentado, e como o zabbix está enviando numero para a gente, foi utilizado o <b>Value Mapping</b> para a tradução dos numeros para textos.
+<center><img src="https://github.com/made4-it/zabbix/blob/master/IMAGENS/Captura%20de%20Tela%202020-01-03%20a%CC%80s%2022.05.59.png"></center>
+<center><img src="https://github.com/made4-it/zabbix/blob/master/IMAGENS/Captura%20de%20Tela%202020-01-03%20a%CC%80s%2022.06.05.png"></center>
+
+
+Para ir adicionando novos itens no grafana, basta copiar os plugings Text e SingleStat e vincular os novos sites que você adicionou no zabbix.
+
