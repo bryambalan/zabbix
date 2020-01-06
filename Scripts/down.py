@@ -1,5 +1,15 @@
 #!/usr/bin/env python
 
+#--------------------------------------------------------------------
+# file:         down.py
+# comment:      Coletar informações dos status dos sites 
+# do DownDetector e realizar um monitoramento com base em seu status code.
+# author:       Made4it <noc@made4it.com.br>
+# date:         30-dez-2019
+# revision:     Rafael Gasnacim, Gabriel Vanjura
+# Last updated: 04-jan-2020, 19:59
+#--------------------------------------------------------------------
+
 from lxml import html
 import requests
 import re
